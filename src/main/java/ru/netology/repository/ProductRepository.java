@@ -37,6 +37,6 @@ public class ProductRepository {
                 index++;
             }
         }
-        items=tmp;
+        items = tmp;
     }
 }

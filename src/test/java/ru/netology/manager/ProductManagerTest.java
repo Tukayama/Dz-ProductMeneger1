@@ -18,7 +18,7 @@ class ProductManagerTest {
     ProductManager manager = new ProductManager(repository);
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         manager.add(one);
         manager.add(two);
         manager.add(three);
@@ -27,16 +27,16 @@ class ProductManagerTest {
 
 
     @Test
-    public void searchByName(){
+    public void searchByName() {
 
-        Product[] actual=manager.searchBy("testBook");
-        Product[] expected =new Product[]{one,four};
-        assertArrayEquals(actual,expected);
+        Product[] actual = manager.searchBy("testBook");
+        Product[] expected = new Product[]{one, four};
+        assertArrayEquals(actual, expected);
 
     }
 
     @Test
-    public void searchByMaker(){
+    public void searchByMaker() {
 
         Product[] actual = manager.searchBy("LG");
         Product[] expected = new Product[]{three};
@@ -44,15 +44,23 @@ class ProductManagerTest {
     }
 
     @Test
-    public void searchByAuthor(){
+    public void sarchByModel() {
+        Product[] actual = manager.searchBy("TestSmartphone");
+        Product[] expected = new Product[]{two, three};
+        assertArrayEquals(actual, expected);
 
-        Product[] actual=manager.searchBy("Ivanov");
-        Product[] expected =new Product[]{one,four};
-        assertArrayEquals(actual,expected);
     }
 
     @Test
-    public void searchByAuthorFindNothing(){
+    public void searchByAuthor() {
+
+        Product[] actual = manager.searchBy("Ivanov");
+        Product[] expected = new Product[]{one, four};
+        assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void searchByAuthorFindNothing() {
         Product[] actual = manager.searchBy("Grachev");
         Product[] expected = new Product[]{};
         assertArrayEquals(actual, expected);
